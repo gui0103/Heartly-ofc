@@ -26,6 +26,15 @@ select * from usuario;
 select * from musica;
 select * from vezesOuvida;
 
+select sum(vezesOuvida) as soma from vezesOuvida where fkUsuario= 1;
+
+select vezesOuvida from vezesOuvida where fkUsuario=1  order by vezesOuvida desc;
+
+select vezesOuvida, titulo from vezesOuvida join musica on 
+	fkMusica = idMusica where fkUsuario = 1 order by vezesOuvida desc;
+    
+select login from usuario;
+
 insert into musica (titulo, vezesOuvidaGeral)
 values ('CASTLE ON THE HILL',  0), ('DIVE',  0), ('GALWAY GIRL',  0), ('NANCY MULLIGAN',  0),
  ('NEW MAN',  0), ('PERFECT',  0), ('SHAPE OF YOU',  0), ('SUPERMARKET FLOWERS',  0);

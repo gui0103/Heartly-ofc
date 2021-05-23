@@ -33,7 +33,7 @@
                         <a href="../telas/cadastro.html">
                             <li>CADASTRO</li>
                         </a>
-                        <a href="../telas/perfil.html">
+                        <a href="../telas/perfil_Logado.html">
                             <li>MEU PERFIL</li>
                         </a>
                     </ul>
@@ -269,7 +269,10 @@
 </html>
 
 <script>
-    function play_song(audio_clicado) {
+    var vt_fkUsuario = sessionStorage.getItem('idUsuario_usuario_meuapp');
+
+    function play_song(audio_clicado, value_musica) {
+        console.log(value_musica);
         for (var pausar = 1; pausar <= 39; pausar++) {
             document.getElementById(`${audio_clicado}`).volume = 0.15;
             document.getElementById(`${audio_clicado}`).play();
@@ -278,5 +281,25 @@
                 document.getElementById(`${pausar}`).load();
             }
         }
+        console.log(value_musica)
+        fetch(`/musica/aumentarVezesOuvidaGeral/${value_musica}/${vt_fkUsuario}`, {
+            method: "POST"
+        }).then(resposta => {
+
+            if (resposta.ok) {
+
+                console.log('Vezes ouvida aumentou!');
+
+            } else {
+
+                console.log('Erro em aumentar vezes ouvida!');
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                });
+            }
+        });
+
+        return false;
     }
 </script>

@@ -32,7 +32,7 @@
                         <a href="../telas/cadastro.html">
                             <li>CADASTRO</li>
                         </a>
-                        <a href="../telas/perfil.html">
+                        <a href="../telas/perfil_Logado.html">
                             <li>MEU PERFIL</li>
                         </a>
                     </ul>
@@ -88,7 +88,6 @@
                     resposta.json().then(json => {
 
                         sessionStorage.login_usuario_meuapp = json.login;
-                        sessionStorage.nome_usuario_meuapp = json.nome;
                         sessionStorage.idUsuario_usuario_meuapp = json.idUsuario;
 
                         window.location.href = 'perfil_Logado.html';
