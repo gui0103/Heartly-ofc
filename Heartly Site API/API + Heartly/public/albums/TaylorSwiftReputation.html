@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../albums/AlbumStyle.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="icon" href="../imgs/Logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Fugaz+One&display=swap" rel="stylesheet">
+    <title>Reputation</title>
+</head>
+
+<body>
+    <!-- Header -->
+    <div class="header">
+        <div class="caixa">
+            <a href="../index.html"><img class="logo" src="../imgs/logo_music.png"
+                    alt="Logo da heartly na cor rosa claro"></a>
+            <a href="../telas/top_albuns.html"><img class="logo_albuns" src="../imgs/albuns.png"></a>
+            <nav>
+                <b>
+                    <ul>
+                        <a href="../index.html">
+                            <li>HOME</li>
+                        </a>
+                        <a href="../telas/emalta.html">
+                            <li>EM ALTA</li>
+                        </a>
+                        <a href="../telas/cadastro.html">
+                            <li>CADASTRO</li>
+                        </a>
+                        <a href="../telas/perfil.html">
+                            <li>MEU PERFIL</li>
+                        </a>
+                    </ul>
+                </b>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Músicas -->
+    <div class="title">
+        <b>REPUTATION</b>
+    </div>
+
+    <div class="box_fileira">
+        <div class="box_song">
+            <b class="box_song_text">...READY FOR IT <br> - TAYLOR SWIFT -</b> <br> <br>
+            <audio id="1" onplay="play_song(this.id, 49)" src="../msc/Taylor Swift - ...Ready For It(MP3_160K).mp3" controls
+                loop> </audio>
+        </div>
+        <div class="box_song2">
+            <b class="box_song_text">LOOK WHAT YOU MADE ME DO <br> - TAYLOR SWIFT -</b> <br> <br>
+            <audio id="2" onplay="play_song(this.id, 50)" src="../msc/Taylor Swift - Look What You Made Me Do(MP3_160K).mp3"
+                controls loop> </audio>
+        </div>
+        <div class="box_song2">
+            <b class="box_song_text">I DID SOMETHING BAD <br> - TAYLOR SWIFT -</b> <br> <br>
+            <audio id="3" onplay="play_song(this.id, 51)" src="../msc/I Did Something Bad(MP3_160K).mp3" controls loop>
+            </audio>
+        </div>
+        <div class="box_song3">
+            <b class="box_song_text">DON'T BLAME <br> - TAYLOR SWIFT -</b> <br> <br>
+            <audio id="4" onplay="play_song(this.id, 52)" src="../msc/Don_t Blame Me(MP3_160K).mp3" controls loop> </audio>
+        </div>
+    </div>
+
+    <div class="box_fileira">
+        <div class="box_song">
+            <b class="box_song_text">DRESS <br> - TAYLOR SWIFT -</b> <br> <br>
+            <audio id="5" onplay="play_song(this.id, 53)" src="../msc/Dress(MP3_160K).mp3" controls loop>
+            </audio>
+        </div>
+        <div class="box_song2">
+            <b class="box_song_text">WHY WE CAN'T HAVE NICE THINGS <br> - TAYLOR SWIFT -</b> <br> <br>
+            <audio id="6" onplay="play_song(this.id, 54)" src="../msc/This Is Why We Can_t Have Nice Things(MP3_160K).mp3"
+                controls loop> </audio>
+        </div>
+        <div class="box_song2">
+            <b class="box_song_text">DELICATE <br> - TAYLOR SWIFT -</b> <br> <br>
+            <audio id="7" onplay="play_song(this.id, 55)" src="../msc/Taylor Swift - Delicate(MP3_160K).mp3" controls loop>
+            </audio>
+        </div>
+        <div class="box_song3">
+            <b class="box_song_text">GETAWAY CAR <br> - TAYLOR SWIFT -</b> <br> <br>
+            <audio id="8" onplay="play_song(this.id, 56)" src="../msc/Getaway Car(MP3_160K).mp3" controls loop> </audio>
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+<script>
+    var vt_fkUsuario = sessionStorage.getItem('idUsuario_usuario_meuapp');
+
+    function play_song(audio_clicado, value_musica) {
+        console.log(value_musica);
+        for (var pausar = 1; pausar <= 8; pausar++) {
+            document.getElementById(`${audio_clicado}`).volume = 0.15;
+            document.getElementById(`${audio_clicado}`).play();
+            if (pausar != audio_clicado) {
+                document.getElementById(`${pausar}`).pause();
+                document.getElementById(`${pausar}`).load();
+            }
+        }
+        console.log(value_musica)
+        fetch(`/musica/aumentarVezesOuvidaGeral/${value_musica}/${vt_fkUsuario}`, {
+            method: "POST"
+        }).then(resposta => {
+
+            if (resposta.ok) {
+
+                console.log('Vezes ouvida aumentou!');
+
+            } else {
+
+                console.log('Erro em aumentar vezes ouvida!');
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                });
+            }
+        });
+
+        return false;
+    }
+</script>

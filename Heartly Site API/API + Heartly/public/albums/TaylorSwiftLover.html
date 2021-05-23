@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../albums/AlbumStyle.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="icon" href="../imgs/Logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Fugaz+One&display=swap" rel="stylesheet">
+    <title>Lover</title>
+</head>
+
+<body>
+    <!-- Header -->
+    <div class="header">
+        <div class="caixa">
+            <a href="../index.html"><img class="logo" src="../imgs/logo_music.png"
+                    alt="Logo da heartly na cor rosa claro"></a>
+            <a href="../telas/top_albuns.html"><img class="logo_albuns" src="../imgs/albuns.png"></a>
+            <nav>
+                <b>
+                    <ul>
+                        <a href="../index.html">
+                            <li>HOME</li>
+                        </a>
+                        <a href="../telas/emalta.html">
+                            <li>EM ALTA</li>
+                        </a>
+                        <a href="../telas/cadastro.html">
+                            <li>CADASTRO</li>
+                        </a>
+                        <a href="../telas/perfil.html">
+                            <li>MEU PERFIL</li>
+                        </a>
+                    </ul>
+                </b>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Músicas -->
+    <div class="title">
+        <b>LOVER</b>
+    </div>
+
+    <div class="box_fileira">
+        <div class="box_song">
+            <b class="box_song_text">CORNELIA STREET <br> - TAYLOR SWIFT -</b> <br> <br>
+            <audio id="1" onplay="play_song(this.id, 41)" src="../msc/Taylor Swift - Cornelia Street(MP3_160K).mp3" controls loop> </audio>
+        </div>
+        <div class="box_song2">
+            <b class="box_song_text">LOVER REMIX <br> - TAYLOR SWIFT -</b> <br> <br>
+            <audio id="2" onplay="play_song(this.id, 42)" src="../msc/Taylor Swift - Lover Remix Feat. Shawn Mendes(MP3_160K).mp3" controls loop> </audio>
+        </div>
+        <div class="box_song2">
+            <b class="box_song_text">WILDEST DREAMS <br> - TAYLOR SWIFT -</b> <br> <br>
+            <audio id="3" onplay="play_song(this.id, 43)" src="../msc/Taylor Swift - Wildest Dreams(MP3_160K).mp3" controls loop> </audio>
+        </div>
+        <div class="box_song3">
+            <b class="box_song_text">BLANK SPACE <br> - TAYLOR SWIFT -</b> <br> <br>
+            <audio id="4" onplay="play_song(this.id, 44)" src="../msc/Taylor Swift - Blank Space(MP3_160K).mp3" controls loop> </audio>
+        </div>
+    </div>
+
+    <div class="box_fileira">
+        <div class="box_song">
+            <b class="box_song_text">I KNEW YOU WERE TROUBLE <br> - TAYLOR SWIFT -</b> <br> <br>
+            <audio id="5" onplay="play_song(this.id, 45)" src="../msc/Taylor Swift - I Knew You Were Trouble (Audio)(MP3_160K).mp3" controls loop>
+            </audio>
+        </div>
+        <div class="box_song2">
+            <b class="box_song_text">STYLE <br> - TAYLOR SWIFT -</b> <br> <br>
+            <audio id="6" onplay="play_song(this.id, 46)" src="../msc/Style - Taylor Swift(MP3_160K).mp3" controls loop> </audio>
+        </div>
+        <div class="box_song2">
+            <b class="box_song_text">THE MAN <br> - TAYLOR SWIFT -</b> <br> <br>
+            <audio id="7" onplay="play_song(this.id, 47)" src="../msc/Taylor Swift - The Man (MP3_160K).mp3" controls loop> </audio>
+        </div>
+        <div class="box_song3">
+            <b class="box_song_text">AFTERGLOW <br> - TAYLOR SWIFT -</b> <br> <br>
+            <audio id="8" onplay="play_song(this.id, 48)" src="../msc/Taylor Swift - Afterglow (MP3_160K).mp3" controls loop> </audio>
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+<script>
+    var vt_fkUsuario = sessionStorage.getItem('idUsuario_usuario_meuapp');
+
+    function play_song(audio_clicado, value_musica) {
+        console.log(value_musica);
+        for (var pausar = 1; pausar <= 8; pausar++) {
+            document.getElementById(`${audio_clicado}`).volume = 0.15;
+            document.getElementById(`${audio_clicado}`).play();
+            if (pausar != audio_clicado) {
+                document.getElementById(`${pausar}`).pause();
+                document.getElementById(`${pausar}`).load();
+            }
+        }
+        console.log(value_musica)
+        fetch(`/musica/aumentarVezesOuvidaGeral/${value_musica}/${vt_fkUsuario}`, {
+            method: "POST"
+        }).then(resposta => {
+
+            if (resposta.ok) {
+
+                console.log('Vezes ouvida aumentou!');
+
+            } else {
+
+                console.log('Erro em aumentar vezes ouvida!');
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                });
+            }
+        });
+
+        return false;
+    }
+</script>

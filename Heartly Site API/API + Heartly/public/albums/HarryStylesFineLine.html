@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../albums/AlbumStyle.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="icon" href="../imgs/Logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Fugaz+One&display=swap" rel="stylesheet">
+    <title>Fine Line</title>
+</head>
+
+<body>
+    <!-- Header -->
+    <div class="header">
+        <div class="caixa">
+            <a href="../index.html"><img class="logo" src="../imgs/logo_music.png"
+                    alt="Logo da heartly na cor rosa claro"></a>
+            <a href="../telas/top_albuns.html"><img class="logo_albuns" src="../imgs/albuns.png"></a>
+            <nav>
+                <b>
+                    <ul>
+                        <a href="../index.html">
+                            <li>HOME</li>
+                        </a>
+                        <a href="../telas/emalta.html">
+                            <li>EM ALTA</li>
+                        </a>
+                        <a href="../telas/cadastro.html">
+                            <li>CADASTRO</li>
+                        </a>
+                        <a href="../telas/perfil.html">
+                            <li>MEU PERFIL</li>
+                        </a>
+                    </ul>
+                </b>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Músicas -->
+    <div class="title">
+        <b>FINE LINE</b>
+    </div>
+
+    <div class="box_fileira">
+        <div class="box_song">
+            <b class="box_song_text">FINE LINE <br> - HARRY STYLES -</b> <br> <br>
+            <audio id="1" onplay="play_song(this.id, 9)"
+                src="../msc/Harry Styles - Fine Line (Official Audio)(MP3_160K).mp3" controls loop> </audio>
+        </div>
+        <div class="box_song2">
+            <b class="box_song_text">GOLDEN <br> - HARRY STYLES -</b> <br> <br>
+            <audio id="2" onplay="play_song(this.id, 10)" src="../msc/Harry Styles - Golden (Official Audio)(MP3_160K).mp3"
+                controls loop> </audio>
+        </div>
+        <div class="box_song2">
+            <b class="box_song_text">LIGHTS UP <br> - HARRY STYLES -</b> <br> <br>
+            <audio id="3" onplay="play_song(this.id, 11)"
+                src="../msc/Harry Styles - Lights Up (Official Video)(MP3_160K).mp3" controls loop>
+            </audio>
+        </div>
+        <div class="box_song3">
+            <b class="box_song_text">SHE <br> - HARRY STYLES -</b> <br> <br>
+            <audio id="4" onplay="play_song(this.id, 12)" src="../msc/Harry Styles - She (Official Audio)(MP3_160K).mp3"
+                controls loop> </audio>
+        </div>
+    </div>
+
+    <div class="box_fileira">
+        <div class="box_song">
+            <b class="box_song_text">TO BE SO LONELY <br> - HARRY STYLES -</b> <br> <br>
+            <audio id="5" onplay="play_song(this.id, 13)"
+                src="../msc/Harry Styles - To Be So Lonely (Official Audio)(MP3_160K).mp3" controls loop>
+            </audio>
+        </div>
+        <div class="box_song2">
+            <b class="box_song_text">ADORE YOU <br> - HARRY STYLES -</b> <br> <br>
+            <audio id="6" onplay="play_song(this.id, 14)" src="../msc/Harry Styles - Adore You(MP3_160K).mp3" controls loop>
+            </audio>
+        </div>
+        <div class="box_song2">
+            <b class="box_song_text">WATERMELON SUGAR <br> - HARRY STYLES -</b> <br> <br>
+            <audio id="7" onplay="play_song(this.id, 15)" src="../msc/Harry Styles - Watermelon Sugar(MP3_160K).mp3"
+                controls loop>
+            </audio>
+        </div>
+        <div class="box_song3">
+            <b class="box_song_text">FALLING <br> - HARRY STYLES -</b> <br> <br>
+            <audio id="8" onplay="play_song(this.id, 16)" src="../msc/Harry Styles - Falling(MP3_160K).mp3" controls loop>
+            </audio>
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+<script>
+    var vt_fkUsuario = sessionStorage.getItem('idUsuario_usuario_meuapp');
+
+    function play_song(audio_clicado, value_musica) {
+        console.log(value_musica);
+        for (var pausar = 1; pausar <= 8; pausar++) {
+            document.getElementById(`${audio_clicado}`).volume = 0.15;
+            document.getElementById(`${audio_clicado}`).play();
+            if (pausar != audio_clicado) {
+                document.getElementById(`${pausar}`).pause();
+                document.getElementById(`${pausar}`).load();
+            }
+        }
+        console.log(value_musica)
+        fetch(`/musica/aumentarVezesOuvidaGeral/${value_musica}/${vt_fkUsuario}`, {
+            method: "POST"
+        }).then(resposta => {
+
+            if (resposta.ok) {
+
+                console.log('Vezes ouvida aumentou!');
+
+            } else {
+
+                console.log('Erro em aumentar vezes ouvida!');
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                });
+            }
+        });
+
+        return false;
+    }
+</script>

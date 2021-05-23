@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../telas/login.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="icon" href="../imgs/Logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Fugaz+One&display=swap" rel="stylesheet">
+    <title>Heartly Cadastro</title>
+</head>
+
+<body>
+    <!-- Header -->
+    <div class="header">
+        <div class="caixa">
+            <a href="../index.html"><img class="logo" src="../imgs/logo_music.png"
+                    alt="Logo da heartly na cor rosa claro"></a>
+            <nav>
+                <b>
+                    <ul>
+                        <a href="../index.html">
+                            <li>HOME</li>
+                        </a>
+                        <a href="../telas/emalta.html">
+                            <li>EM ALTA</li>
+                        </a>
+                        <a href="../telas/cadastro.html">
+                            <li>CADASTRO</li>
+                        </a>
+                        <a href="../telas/perfil.html">
+                            <li>MEU PERFIL</li>
+                        </a>
+                    </ul>
+                </b>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Content -->
+    <div class="fundo">
+        <div class="box_fundo">
+            <div class="container">
+                <h1>Faça Login no
+                    Heartly aqui</h1> <br>
+                <h2>Entre em sua conta e veja o que <br>
+                    preparamos para você no Heartly</h2> <br>
+
+                <form id="form_login" method="post" onsubmit="return entrar()">
+                    <span><b>Insira seu login:</b></span> <br>
+                    <input type="text" id="inp_login" name="login"> <br>
+
+                    <span><b>Insira sua senha:</b></span> <br>
+                    <input type="password" id="inp_senha" name="senha"> <br>
+
+                    <button onclick="entrar()" id="btn_entrar"><b>Entrar</b></button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+<script>
+    function entrar() {
+        var login = inp_login.value;
+        var senha = inp_senha.value;
+
+        if (login == "" || senha == "") {
+            alert("Login Inválido!")
+        } else {
+            aguardar();
+            var formulario = new URLSearchParams(new FormData(form_login));
+            fetch("/usuarios/autenticar", {
+                method: "POST",
+                body: formulario
+            }).then(resposta => {
+
+                if (resposta.ok) {
+
+                    resposta.json().then(json => {
+
+                        sessionStorage.login_usuario_meuapp = json.login;
+                        sessionStorage.nome_usuario_meuapp = json.nome;
+                        sessionStorage.idUsuario_usuario_meuapp = json.idUsuario;
+
+                        window.location.href = 'perfil_Logado.html';
+                    });
+
+                } else {
+
+                    console.log('Erro de login!');
+
+                    resposta.text().then(texto => {
+                        console.error(texto);
+                        finalizar_aguardar(texto);
+                    });
+                }
+            });
+
+            return false;
+        }
+    }
+
+
+    function aguardar() {
+        btn_entrar.disabled = true;
+    }
+
+    function finalizar_aguardar() {
+        btn_entrar.disabled = false;
+    }
+</script>

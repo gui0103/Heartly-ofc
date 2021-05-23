@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../telas/top_live_shows.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link rel="icon" href="../imgs/Logo.png">
+  <link href="https://fonts.googleapis.com/css2?family=Fugaz+One&display=swap" rel="stylesheet">
+  <title>Performances</title>
+</head>
+
+<body>
+  <!-- Header -->
+  <div class="header">
+    <div class="caixa">
+      <a href="../index.html"><img class="logo" src="../imgs/logo_music.png"
+          alt="Logo da heartly na cor rosa claro"></a>
+      <a href="../telas/performances_secret.html"><img class="logo" src="../imgs/performances.png"></a>
+      <nav>
+        <b>
+            <ul>
+                <a href="../index.html">
+                    <li>HOME</li>
+                </a>
+                <a href="../telas/emalta.html">
+                    <li>EM ALTA</li>
+                </a>
+                <a href="../telas/cadastro.html">
+                    <li>CADASTRO</li>
+                </a>
+                <a href="../telas/perfil.html">
+                    <li>MEU PERFIL</li>
+                </a>
+            </ul>
+        </b>
+    </nav>
+    </div>
+  </div>
+
+  <!-- Best Performers -->
+
+  <div class="box_home">
+
+    <div class="faixa_show">
+      <span onclick="best_performers()" id="span_best_performers">BEST PERFORMERS</span>
+    </div>
+
+    <div class="box_fileira">
+      <div class="box_rosa">
+        <a href="../performances/show_shawn.html"><img src="../imgs/show_shawn.png"></a>
+      </div>
+      <div class="box_rosa2">
+        <a href="../performances/show_taylor.html"><img src="../imgs/show_taylor.png"></a>
+      </div>
+    </div>
+
+    <div class="box_fileira">
+      <div class="box_rosa">
+        <a href="../performances/show_harry.html"><img src="../imgs/show_harry.png"></a>
+      </div>
+      <div class="box_rosa2">
+        <a href="../performances/show_ed.html"><img src="../imgs/show_ed.png"></a>
+      </div>
+    </div>
+
+    <div class="box_fileira">
+      <div class="box_rosa">
+        <a href="../performances/show_justin.html"><img src="../imgs/show_justin.png"></a>
+      </div>
+      <div class="box_rosa2">
+        <a href="../performances/show_travis.html"><img src="../imgs/show_travis.png"></a>
+      </div>
+    </div>
+
+    <div class="box_fileira">
+      <div class="box_rosa">
+        <a href="../performances/show_bruno.html"><img src="../imgs/show_bruno.png"></a>
+      </div>
+      <div class="box_rosa2">
+        <a href="../performances/show_billie.html"><img src="../imgs/show_billie.png"></a>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <!-- Best Performers -->
+
+  <div class="box_home">
+
+    <div class="faixa_all">
+      <span onclick="all_performances()" id="span_all_performances">ALL PERFORMANCES</span>
+    </div>
+
+    <div class="faixa_all_shows">
+      <a href="../performances/all_shows.html"><img src="../imgs/all_performances.png"></a>
+    </div>
+  </div>
+
+</body>
+
+</html>
+
+<!-- Funções -->
+<script>
+  var contador = 0;
+  var contador2 = 0;
+
+  function best_performers() {
+    if (contador == 0) {
+      span_best_performers.innerHTML = "Abaixo você pode ver os melhores <br> performers existentes no mundo";
+      span_best_performers.style.fontSize = "35px";
+      contador++;
+    } else if (contador == 1) {
+      span_best_performers.innerHTML = "BEST PERFORMERS";
+      span_best_performers.style.fontSize = "60px";
+      contador--;
+    }
+
+  }
+
+  function all_performances() {
+    if (contador2 == 0) {
+      span_all_performances.innerHTML = "Abaixo você pode ver todas as melhores <br> performances existentes no mundo";
+      span_all_performances.style.fontSize = "35px";
+      contador2++;
+    } else if (contador2 == 1) {
+      span_all_performances.innerHTML = "ALL PERFORMANCES";
+      span_all_performances.style.fontSize = "60px";
+      contador2--;
+    }
+
+  }
+</script>

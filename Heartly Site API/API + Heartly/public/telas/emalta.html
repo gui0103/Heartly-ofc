@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../telas/emalta.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link rel="icon" href="../imgs/Logo.png">
+  <link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet">
+  <title>Heartly</title>
+</head>
+
+<body>
+  <!-- Header -->
+  <div class="header">
+    <div class="caixa">
+      <a href="../index.html"><img class="logo" src="../imgs/logo_music.png"
+          alt="Logo da heartly na cor rosa claro"></a>
+      <nav>
+        <b>
+          <ul>
+            <a href="../index.html">
+              <li>HOME</li>
+            </a>
+            <a href="../telas/emalta.html">
+              <li>EM ALTA</li>
+            </a>
+            <a href="../telas/cadastro.html">
+              <li>CADASTRO</li>
+            </a>
+            <a href="../telas/perfil.html">
+              <li>MEU PERFIL</li>
+            </a>
+          </ul>
+        </b>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Em Alta -->
+  <div class="box_home">
+    <div class="box_fileira">
+
+      <!-- Música aleatória -->
+
+      <div class="box_rosa">
+        <button onclick="musica_aleatoria()">Clique aqui</button> <br><br>
+
+        <span id="titulo" style="color: white; display: none;"></span> <br> <br>
+
+        <audio id="audio" onplay="tocar_musica()" controls loop style="display: none;"> </audio>
+      </div>
+
+      <!-- Top Songs -->
+      <a href="../telas/">
+        <div class="box_rosa">
+          <span></span>
+        </div>
+      </a>
+
+      <!-- Top Songs -->
+      <a href="../telas/">
+        <div class="box_rosa">
+          <span></span>
+        </div>
+      </a>
+    </div>
+
+  </div>
+</body>
+<a href="../msc/NEFFEX - No Sleep -- [Copyright Free](MP3_128K).mp3"></a>
+
+</html>
+
+<script>
+  var vt_musica = ["../msc/24K Magic.mp3", "../msc/Always Been You(MP3_160K).mp3", "../msc/As Long As You Love Me.mp3",
+    "../msc/Attention.mp3", "../msc/Bad Liar.mp3", "../msc/Bad Reputation.mp3", "../msc/Bank Account.mp3",
+    "../msc/Billie Eilish - all the good girls go to hell(MP3_160K).mp3", "../msc/Company.mp3",
+    "../msc/Billie Eilish - when the party_s over(MP3_160K).mp3", "../msc/Don_t Blame Me(MP3_160K).mp3",
+    "../msc/Dream(MP3_160K).mp3", "../msc/Dress(MP3_160K).mp3", "../msc/Ed Sheeran - Dive(MP3_160K).mp3",
+    "../msc/Ed Sheeran - Perfect (MP3_160K).mp3", "../msc/Ed Sheeran - Shape of You (MP3_160K).mp3",
+    "../msc/Fallin' All In You.mp3", "../msc/Getaway Car(MP3_160K).mp3", "../msc/Lil Nas X - MONTERO(MP3_160K).mp3",
+    "../msc/Harry Styles - Adore You(MP3_160K).mp3", "../msc/Harry Styles - She (Official Audio)(MP3_160K).mp3",
+    "../msc/Harry Styles - Fine Line (Official Audio)(MP3_160K).mp3", "../msc/Justin Bieber - Anyone(MP3_160K).mp3",
+    "../msc/Harry Styles - Golden (Official Audio)(MP3_160K).mp3", "../msc/Justin Bieber - 2 Much(MP3_160K).mp3",
+    "../msc/Harry Styles - Watermelon Sugar(MP3_160K).mp3", "../msc/I Did Something Bad(MP3_160K).mp3",
+    "../msc/Harry Styles - Kiwi(MP3_160K).mp3", "../msc/Harry Styles - Lights Up (Official Video)(MP3_160K).mp3",
+    "../msc/Harry Styles - Sign of the Times (Audio)(MP3_160K).mp3", "../msc/Justin Bieber - E.T.A(MP3_160K).mp3",
+    "../msc/Justin Bieber - Come Around Me(MP3_160K).mp3", "../msc/Justin Bieber - Die For You(MP3_160K).mp3",
+    "../msc/Harry Styles - To Be So Lonely (Official Audio)(MP3_160K).mp3", "../msc/Mercy.mp3", "../msc/Mutual.mp3",
+    "../msc/Justin Bieber - Peaches(MP3_160K).mp3", "../msc/Justin Timberlake - Mirrors (Audio)(MP3_160K).mp3",
+    "../msc/Justin Bieber - Hold On(MP3_160K).mp3", "../msc/Justin Bieber - Intentions(MP3_160K).mp3",
+    "../msc/Justin Bieber - Forever(MP3_160K).mp3", "../msc/Justin Bieber - Habitual(MP3_160K).mp3",
+    "../msc/Justin Timberlake - What Goes Around...Comes Aroun(MP3_160K).mp3", "../msc/Love Yourself Lyrics.mp3",
+    "../msc/NEFFEX - No Sleep -- [Copyright Free](MP3_128K).mp3"
+  ];
+
+  var vt_titulo = ["24K Magic", "Always Been You", "As Long As You Love Me", "Attention", "Bad Liar", "Bad Reputation",
+    "Bank Account", "all the good girls go to hell", "Company", "when the party's over", "Don't Blame Me", "Dream",
+    "Dress", "Dive", "Perfect", "Shape of You", "Fallin' All In You", "Getaway Car", "Montero", "Adore You", "She",
+    "Fine Line",
+    "Anyone", "Golden", "2 Much", " Watermelon Sugar", "I Did Something Bad", "Kiwi", "Lights Up",
+    "Sign of the Times", "E.T.A",
+    "Come Around Me", "Die For You", "To Be So Lonely", "Mercy", "Mutual", "Peaches", "Mirrors", "Hold On",
+    "Intentions", "Forever", "Habitual", "What Goes Around...Comes Around", "Love Yourself", "No Sleep"
+  ];
+
+  function musica_aleatoria() {
+    var musica = parseInt(Math.random() * 45);
+    //var musica = parseInt(Math.random() * 118);
+
+    // Define a música sorteada
+    var musica_escolhida = vt_musica[musica];
+    audio.src = `${musica_escolhida}`;
+
+    // Define o nome da música
+    var musica_escolhida_titulo = vt_titulo[musica];
+    titulo.innerHTML = `${musica_escolhida_titulo}`;
+
+    audio.style.display = "block";
+    titulo.style.display = "block";
+
+    //Faz a música tocar sozinha
+    audio.play();
+    audio.volume = 0.15;
+
+  }
+  /* Regula o volume da música
+  function tocar_musica() {
+    audio.volume = 0.15;
+  } */
+</script>

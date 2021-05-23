@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../albums/AlbumStyle.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="icon" href="../imgs/Logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Fugaz+One&display=swap" rel="stylesheet">
+    <title>Wonder</title>
+</head>
+
+<body>
+    <!-- Header -->
+    <div class="header">
+        <div class="caixa">
+            <a href="../index.html"><img class="logo" src="../imgs/logo_music.png"
+                    alt="Logo da heartly na cor rosa claro"></a>
+            <a href="../telas/top_albuns.html"><img class="logo_albuns" src="../imgs/albuns.png"></a>
+            <nav>
+                <b>
+                    <ul>
+                        <a href="../index.html">
+                            <li>HOME</li>
+                        </a>
+                        <a href="../telas/emalta.html">
+                            <li>EM ALTA</li>
+                        </a>
+                        <a href="../telas/cadastro.html">
+                            <li>CADASTRO</li>
+                        </a>
+                        <a href="../telas/perfil.html">
+                            <li>MEU PERFIL</li>
+                        </a>
+                    </ul>
+                </b>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Músicas -->
+    <div class="title">
+        <b>WONDER</b>
+    </div>
+
+    <div class="box_fileira">
+        <div class="box_song">
+            <b class="box_song_text">ALWAYS BEEN YOU <br> - SHAWN MENDES -</b> <br> <br>
+            <audio id="1" onplay="play_song(this.id, 33)" src="../msc/Always Been You(MP3_160K).mp3" controls loop>
+            </audio>
+        </div>
+        <div class="box_song2">
+            <b class="box_song_text">DREAM <br> - SHAWN MENDES -</b> <br> <br>
+            <audio id="2" onplay="play_song(this.id, 34)" src="../msc/Dream(MP3_160K).mp3" controls loop> </audio>
+        </div>
+        <div class="box_song2">
+            <b class="box_song_text">LOOK UP AT THE STARS <br> - SHAWN MENDES -</b> <br> <br>
+            <audio id="3" onplay="play_song(this.id, 35)"
+                src="../msc/Shawn Mendes - Look Up At The Stars (Lyric Video)(MP3_160K).mp3" controls loop> </audio>
+        </div>
+        <div class="box_song3">
+            <b class="box_song_text">SONG FOR NO ONE <br> - SHAWN MENDES -</b> <br> <br>
+            <audio id="4" onplay="play_song(this.id, 36)" src="../msc/Song For No One(MP3_160K).mp3" controls loop>
+            </audio>
+        </div>
+    </div>
+
+    <div class="box_fileira">
+        <div class="box_song">
+            <b class="box_song_text">WONDER <br> - SHAWN MENDES -</b> <br> <br>
+            <audio id="5" onplay="play_song(this.id, 37)" src="../msc/Wonder(MP3_160K).mp3" controls loop> </audio>
+        </div>
+        <div class="box_song2">
+            <b class="box_song_text">MONSTER <br> - SHAWN MENDES -</b> <br> <br>
+            <audio id="6" onplay="play_song(this.id, 38)" src="../msc/Shawn Mendes - Monster(MP3_160K).mp3" controls loop>
+            </audio>
+        </div>
+        <div class="box_song2">
+            <b class="box_song_text">HIGHER <br> - SHAWN MENDES -</b> <br> <br>
+            <audio id="7" onplay="play_song(this.id, 39)" src="../msc/Shawn Mendes - Higher(MP3_160K).mp3" controls loop> </audio>
+        </div>
+        <div class="box_song3">
+            <b class="box_song_text">TEACH ME HOW TO LOVE <br> - SHAWN MENDES -</b> <br> <br>
+            <audio id="8" onplay="play_song(this.id, 40)" src="../msc/Shawn Mendes - Teach Me How To Love (Lyric Video)(MP3_160K).mp3" controls loop> </audio>
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+<script>
+    var vt_fkUsuario = sessionStorage.getItem('idUsuario_usuario_meuapp');
+
+    function play_song(audio_clicado, value_musica) {
+        console.log(value_musica);
+        for (var pausar = 1; pausar <= 8; pausar++) {
+            document.getElementById(`${audio_clicado}`).volume = 0.15;
+            document.getElementById(`${audio_clicado}`).play();
+            if (pausar != audio_clicado) {
+                document.getElementById(`${pausar}`).pause();
+                document.getElementById(`${pausar}`).load();
+            }
+        }
+        console.log(value_musica)
+        fetch(`/musica/aumentarVezesOuvidaGeral/${value_musica}/${vt_fkUsuario}`, {
+            method: "POST"
+        }).then(resposta => {
+
+            if (resposta.ok) {
+
+                console.log('Vezes ouvida aumentou!');
+
+            } else {
+
+                console.log('Erro em aumentar vezes ouvida!');
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                });
+            }
+        });
+
+        return false;
+    }
+</script>
