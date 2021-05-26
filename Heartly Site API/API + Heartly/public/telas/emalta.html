@@ -46,17 +46,25 @@
       <!-- Música aleatória -->
 
       <div class="box_rosa">
-        <button onclick="musica_aleatoria()">Clique aqui</button> <br><br>
+        <h3>Clique no botão e descubra qual <br>
+            música você deveria ouvir agora!</h3>
+        <button onclick="musica_aleatoria()"><b>Descobrir</b></button> 
 
-        <span id="titulo" style="color: white; display: none;"></span> <br> <br>
+        <span id="titulo" style="display: none;"></span> <br>
+        <div class="div_audio">
+          <audio id="audio" onplay="tocar_musica()" controls loop style="display: none;"> </audio>
+        </div>
 
-        <audio id="audio" onplay="tocar_musica()" controls loop style="display: none;"> </audio>
       </div>
 
-      <!-- Top Songs -->
+      <!-- Sobre o criador -->
       <a href="../telas/">
         <div class="box_rosa">
-          <span></span>
+          <h3>Sobre o Criador</h3>
+          <h4>Descubra todas as inpirações do <br>
+              criador do Heartly e veja sua relação <br>
+              com esse tema incrível que é a música!</h4>
+              <a href="../telas/sobre.html"><img src="../imgs/Logo.png"></a>
         </div>
       </a>
 
@@ -70,46 +78,43 @@
 
   </div>
 </body>
-<a href="../msc/NEFFEX - No Sleep -- [Copyright Free](MP3_128K).mp3"></a>
+
+<!-- <a href="../msc/Travis Scott - ASTROTHUNDER (MP3_160K).mp3"></a> -->
 
 </html>
 
 <script>
-  var vt_musica = ["../msc/24K Magic.mp3", "../msc/Always Been You(MP3_160K).mp3", "../msc/As Long As You Love Me.mp3",
-    "../msc/Attention.mp3", "../msc/Bad Liar.mp3", "../msc/Bad Reputation.mp3", "../msc/Bank Account.mp3",
-    "../msc/Billie Eilish - all the good girls go to hell(MP3_160K).mp3", "../msc/Company.mp3",
-    "../msc/Billie Eilish - when the party_s over(MP3_160K).mp3", "../msc/Don_t Blame Me(MP3_160K).mp3",
+  var vt_musica = ["../msc/Always Been You(MP3_160K).mp3", "../msc/Don_t Blame Me(MP3_160K).mp3",
     "../msc/Dream(MP3_160K).mp3", "../msc/Dress(MP3_160K).mp3", "../msc/Ed Sheeran - Dive(MP3_160K).mp3",
     "../msc/Ed Sheeran - Perfect (MP3_160K).mp3", "../msc/Ed Sheeran - Shape of You (MP3_160K).mp3",
-    "../msc/Fallin' All In You.mp3", "../msc/Getaway Car(MP3_160K).mp3", "../msc/Lil Nas X - MONTERO(MP3_160K).mp3",
+    "../msc/Fallin' All In You.mp3", "../msc/Getaway Car(MP3_160K).mp3",
     "../msc/Harry Styles - Adore You(MP3_160K).mp3", "../msc/Harry Styles - She (Official Audio)(MP3_160K).mp3",
-    "../msc/Harry Styles - Fine Line (Official Audio)(MP3_160K).mp3", "../msc/Justin Bieber - Anyone(MP3_160K).mp3",
-    "../msc/Harry Styles - Golden (Official Audio)(MP3_160K).mp3", "../msc/Justin Bieber - 2 Much(MP3_160K).mp3",
+    "../msc/Harry Styles - Fine Line (Official Audio)(MP3_160K).mp3",
+    "../msc/Harry Styles - Golden (Official Audio)(MP3_160K).mp3",
     "../msc/Harry Styles - Watermelon Sugar(MP3_160K).mp3", "../msc/I Did Something Bad(MP3_160K).mp3",
     "../msc/Harry Styles - Kiwi(MP3_160K).mp3", "../msc/Harry Styles - Lights Up (Official Video)(MP3_160K).mp3",
-    "../msc/Harry Styles - Sign of the Times (Audio)(MP3_160K).mp3", "../msc/Justin Bieber - E.T.A(MP3_160K).mp3",
-    "../msc/Justin Bieber - Come Around Me(MP3_160K).mp3", "../msc/Justin Bieber - Die For You(MP3_160K).mp3",
-    "../msc/Harry Styles - To Be So Lonely (Official Audio)(MP3_160K).mp3", "../msc/Mercy.mp3", "../msc/Mutual.mp3",
-    "../msc/Justin Bieber - Peaches(MP3_160K).mp3", "../msc/Justin Timberlake - Mirrors (Audio)(MP3_160K).mp3",
-    "../msc/Justin Bieber - Hold On(MP3_160K).mp3", "../msc/Justin Bieber - Intentions(MP3_160K).mp3",
-    "../msc/Justin Bieber - Forever(MP3_160K).mp3", "../msc/Justin Bieber - Habitual(MP3_160K).mp3",
-    "../msc/Justin Timberlake - What Goes Around...Comes Aroun(MP3_160K).mp3", "../msc/Love Yourself Lyrics.mp3",
-    "../msc/NEFFEX - No Sleep -- [Copyright Free](MP3_128K).mp3"
+    "../msc/Harry Styles - Sign of the Times (Audio)(MP3_160K).mp3",
+    "../msc/Harry Styles - To Be So Lonely (Official Audio)(MP3_160K).mp3", "../msc/Mutual.mp3", "../msc/Nervous.mp3",
+    "../msc/Numb (Official Video) - Linkin Park.mp3", "../msc/Painkiller(MP3_160K).mp3",
+    "../msc/Ruel - Free Time (Audio)(MP3_160K).mp3", "../msc/Shawn Mendes - Monster(MP3_160K).mp3",
+    "../msc/Song For No One(MP3_160K).mp3",
+    "../msc/Style - Taylor Swift(MP3_160K).mp3", "../msc/Taylor Swift - Blank Space(MP3_160K).mp3",
+    "../msc/Taylor Swift - Cornelia Street(MP3_160K).mp3",
+    "../msc/Taylor Swift - Lover Remix Feat. Shawn Mendes(MP3_160K).mp3",
+    "../msc/Taylor Swift - Wildest Dreams(MP3_160K).mp3",
+    "../msc/Travis Scott - ASTROTHUNDER (MP3_160K).mp3"
   ];
 
-  var vt_titulo = ["24K Magic", "Always Been You", "As Long As You Love Me", "Attention", "Bad Liar", "Bad Reputation",
-    "Bank Account", "all the good girls go to hell", "Company", "when the party's over", "Don't Blame Me", "Dream",
-    "Dress", "Dive", "Perfect", "Shape of You", "Fallin' All In You", "Getaway Car", "Montero", "Adore You", "She",
-    "Fine Line",
-    "Anyone", "Golden", "2 Much", " Watermelon Sugar", "I Did Something Bad", "Kiwi", "Lights Up",
-    "Sign of the Times", "E.T.A",
-    "Come Around Me", "Die For You", "To Be So Lonely", "Mercy", "Mutual", "Peaches", "Mirrors", "Hold On",
-    "Intentions", "Forever", "Habitual", "What Goes Around...Comes Around", "Love Yourself", "No Sleep"
+  var vt_titulo = ["Always Been You", "Don't Blame Me", "Dream",
+    "Dress", "Dive", "Perfect", "Shape of You", "Fallin' All In You", "Getaway Car", "Adore You", "She",
+    "Fine Line", "Golden", " Watermelon Sugar", "I Did Something Bad", "Kiwi", "Lights Up",
+    "Sign of the Times", "To Be So Lonely", "Mutual", "Nervous", "Numb", "Painkiller", "Free Time", "Monster",
+    "Song For No One", "Style", "Blank Space", "Cornelia Street", "Lover Remix", "Wildest Dreams", "Astrothunder"
   ];
 
   function musica_aleatoria() {
-    var musica = parseInt(Math.random() * 45);
-    //var musica = parseInt(Math.random() * 118);
+    var musica = parseInt(Math.random() * 32);
+    //var musica = parseInt(Math.random() * 70);
 
     // Define a música sorteada
     var musica_escolhida = vt_musica[musica];
@@ -124,11 +129,7 @@
 
     //Faz a música tocar sozinha
     audio.play();
-    audio.volume = 0.15;
+    audio.volume = 0.15; // Regula o volume da música
 
   }
-  /* Regula o volume da música
-  function tocar_musica() {
-    audio.volume = 0.15;
-  } */
 </script>

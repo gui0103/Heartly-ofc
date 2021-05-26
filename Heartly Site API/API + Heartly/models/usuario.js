@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
 			primaryKey: true,
 			autoIncrement: true
 		},		
-		login: {
+		login: { 
 			field: 'login',
 			type: DataTypes.STRING,
 			allowNull: false

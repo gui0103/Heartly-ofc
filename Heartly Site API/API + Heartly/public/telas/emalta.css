@@ -82,6 +82,61 @@ a {
   text-align: center;
 }
 
+.box_rosa span{
+  color: #e0b0ff;
+  font-family: PT Sans, sans-serif, Impact;
+  font-size: 22px;
+}
+
+.box_rosa h3{
+  color: #ffffff;
+  font-family: PT Sans, sans-serif, Impact;
+  font-size: 22px;
+  margin-bottom: 50px;
+  margin-top: 45px;
+}
+
+.box_rosa h4{
+  color: #ffffff;
+  font-family: PT Sans, sans-serif, Impact;
+  font-size: 18px;
+  margin-bottom: 50px;
+  margin-top: 45px;
+}
+
+.box_rosa img{
+  height: 105px;
+  opacity: 0.75;
+}
+
+.box_rosa img:hover{
+  height: 105px;
+  opacity: 1;
+}
+
+.box_rosa button{
+  font-family: PT Sans, sans-serif, Impact;
+  font-size: 20px;
+  background-color: #e0b0ff;
+  color: #ffffff;
+  width: 150px;
+  height: 40px;
+  border: none;
+  border-radius: 5px;
+  margin-bottom: 50px;
+}
+
+.box_rosa button:hover{
+  border-color: #ffffff;
+  border-width: 2px;
+  border-style: solid;
+  cursor: pointer;
+}
+
+.div_audio {
+  margin-left: 50px;
+}
+
 /* Configurações da tag "audio" */
 audio::-webkit-media-controls-panel {
   background-color: #e0b0ff;
