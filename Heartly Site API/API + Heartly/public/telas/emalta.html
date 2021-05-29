@@ -43,12 +43,23 @@
   <div class="box_home">
     <div class="box_fileira">
 
-      <!-- Música aleatória -->
-
+      <!-- Sobre o criador -->
       <div class="box_rosa">
-        <h3>Clique no botão e descubra qual <br>
-            música você deveria ouvir agora!</h3>
-        <button onclick="musica_aleatoria()"><b>Descobrir</b></button> 
+        <h3>Sobre o Criador</h3>
+        <h4>Descubra todas as inpirações do <br>
+          criador do Heartly e veja sua relação <br>
+          com esse tema incrível que é a música!</h4>
+        <a href="../telas/sobre.html"><img src="../imgs/Logo.png"></a>
+      </div>
+
+      <!-- Música aleatória -->
+      <div class="box_rosa">
+        <h3>Qual Música Você Deveria Ouvir:</h3>
+          <h4 id="h4_msc_aleatoria">Clique no ícone e descubra qual <br>
+              música do Heartly você deveria <br>
+              ouvir agora!</h4>
+
+        <img onclick="musica_aleatoria()" id="img_random" src="../imgs/shuffle.png" style="margin-bottom: 15px;">
 
         <span id="titulo" style="display: none;"></span> <br>
         <div class="div_audio">
@@ -57,23 +68,14 @@
 
       </div>
 
-      <!-- Sobre o criador -->
-      <a href="../telas/">
-        <div class="box_rosa">
-          <h3>Sobre o Criador</h3>
-          <h4>Descubra todas as inpirações do <br>
-              criador do Heartly e veja sua relação <br>
-              com esse tema incrível que é a música!</h4>
-              <a href="../telas/sobre.html"><img src="../imgs/Logo.png"></a>
-        </div>
-      </a>
-
-      <!-- Top Songs -->
-      <a href="../telas/">
-        <div class="box_rosa">
-          <span></span>
-        </div>
-      </a>
+      <!-- Sobre o projeto -->
+      <div class="box_rosa">
+        <h3>Sobre o Projeto</h3>
+        <h4>Veja todas as informações sobre <br>
+          o Heartly, tudo o que você precisa <br>
+          saber a respeito do site está aqui!</h4>
+        <a href="../telas/sobre.html"><img src="../imgs/Logo.png"></a>
+      </div>
     </div>
 
   </div>
@@ -124,8 +126,11 @@
     var musica_escolhida_titulo = vt_titulo[musica];
     titulo.innerHTML = `${musica_escolhida_titulo}`;
 
+    // Faz a música e seu título aparecerem na tela
+    // Faz a frase explicando a função do botão sumir
     audio.style.display = "block";
     titulo.style.display = "block";
+    h4_msc_aleatoria.style.display = "none";
 
     //Faz a música tocar sozinha
     audio.play();

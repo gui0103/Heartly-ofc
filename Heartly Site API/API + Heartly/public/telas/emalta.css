@@ -56,7 +56,7 @@ a {
 /* Em Alta */
 
 .box_home {
-  padding-top: 160px;
+  padding-top: 300px;
 }
 
 .box_fileira {
@@ -74,7 +74,6 @@ a {
   width: 400px;
   background-color: #000000;
   border-radius: 10px;
-  cursor: pointer;
   opacity: 1;
   border-color: #1981d3;
   border-width: 1px;
@@ -86,6 +85,7 @@ a {
   color: #e0b0ff;
   font-family: PT Sans, sans-serif, Impact;
   font-size: 22px;
+  cursor: default;
 }
 
 .box_rosa h3{
@@ -94,6 +94,7 @@ a {
   font-size: 22px;
   margin-bottom: 50px;
   margin-top: 45px;
+  cursor: default;
 }
 
 .box_rosa h4{
@@ -102,6 +103,7 @@ a {
   font-size: 18px;
   margin-bottom: 50px;
   margin-top: 45px;
+  cursor: default;
 }
 
 .box_rosa img{
@@ -112,6 +114,7 @@ a {
 .box_rosa img:hover{
   height: 105px;
   opacity: 1;
+  cursor: pointer;
 }
 
 .box_rosa button{
