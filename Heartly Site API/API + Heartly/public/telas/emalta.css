@@ -56,7 +56,7 @@ a {
 /* Em Alta */
 
 .box_home {
-  padding-top: 300px;
+  padding-top: 160px;
 }
 
 .box_fileira {
@@ -65,6 +65,7 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-bottom: 40px;
 }
 
 .box_rosa {
@@ -134,6 +135,82 @@ a {
   border-width: 2px;
   border-style: solid;
   cursor: pointer;
+}
+
+.box_rosa2 {
+  margin-right: 20px;
+  margin-left: 20px;
+  height: 300px;
+  width: 1280px;
+  background-color: #000000;
+  border-radius: 10px;
+  opacity: 1;
+  border-color: #1981d3;
+  border-width: 1px;
+  border-style: solid;
+  text-align: center;
+}
+
+.box_rosa2 span{
+  color: #e0b0ff;
+  font-family: PT Sans, sans-serif, Impact;
+  font-size: 22px;
+  cursor: default;
+}
+
+.box_rosa2 h3{
+  color: #ffffff;
+  font-family: PT Sans, sans-serif, Impact;
+  font-size: 22px;
+  margin-top: 45px;
+  cursor: default;
+}
+
+.box_rosa2 h4{
+  color: #ffffff;
+  font-family: PT Sans, sans-serif, Impact;
+  font-size: 18px;
+  margin-bottom: 50px;
+  margin-top: 45px;
+  cursor: default;
+}
+
+.box_rosa2 img{
+  height: 105px;
+  opacity: 0.75;
+}
+
+.box_rosa2 img:hover{
+  height: 105px;
+  opacity: 1;
+  cursor: pointer;
+}
+
+.box_rosa2 button{
+  font-family: PT Sans, sans-serif, Impact;
+  font-size: 20px;
+  background-color: #e0b0ff;
+  color: #ffffff;
+  width: 150px;
+  height: 40px;
+  border: none;
+  border-radius: 5px;
+  margin-bottom: 50px;
+}
+
+.box_rosa2 button:hover{
+  border-color: #ffffff;
+  border-width: 2px;
+  border-style: solid;
+  cursor: pointer;
+}
+
+.box_container {
+  margin-left: 10%;
+  margin-right: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .div_audio {

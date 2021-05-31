@@ -3,7 +3,7 @@ body {
     padding: 0;
     border: 0;
     background-color: #fffff0;
-    background-image: url('https://i.pinimg.com/originals/ba/b8/b3/bab8b3e0bcc30e3c48a890e07ef01033.jpg');
+    background-image: url('https://i.pinimg.com/originals/3f/6a/94/3f6a946e7802cc6af9d8ab625ef79eb5.jpg');
 }
 
 /* Header */
@@ -112,6 +112,18 @@ a {
     cursor: pointer;
 }
 
+.div_title {
+    padding-top: 130px;
+    text-align: center;
+}
+
+.div_title h2 {
+    color: #fffff0;
+    font-family: PT Sans, sans-serif, Impact;
+    font-size: 50px;
+    cursor: default;
+}
+
 /* Footer */
 
 .caixa h2 {
@@ -127,18 +139,6 @@ a {
     font-family: PT Sans, sans-serif, Impact;
     font-size: 40px;
     background-color: #000000;
-}
-
-.div_title {
-    padding-top: 130px;
-    text-align: center;
-}
-
-.div_title h2 {
-    color: #fffff0;
-    font-family: PT Sans, sans-serif, Impact;
-    font-size: 50px;
-    cursor: default;
 }
 
 .social_icons img {
