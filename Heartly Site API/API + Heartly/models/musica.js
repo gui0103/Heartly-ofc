@@ -22,6 +22,11 @@ module.exports = (sequelize, DataTypes) => {
 			field: 'vezesOuvidaGeral',
 			type: DataTypes.INTEGER,
 			allowNull: false
+		},
+		artista: {
+			field: 'artista',
+			type: DataTypes.STRING,
+			allowNull: false
 		}
 	}, 
 	{

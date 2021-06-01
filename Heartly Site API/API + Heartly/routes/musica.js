@@ -3,6 +3,7 @@ var router = express.Router();
 var sequelize = require('../models').sequelize;
 var musica = require('../models').musica;
 var vezesOuvida = require('../models').vezesOuvida;
+var playlist = require('../models').playlist;
 
 let sessoes = [];
 
@@ -20,7 +21,7 @@ router.post('/aumentarVezesOuvidaGeral/:value_musica/:vt_fkUsuario', function (r
 		console.log(`Encontrados: ${resultado.length}`);
 
 		if (resultado.length == 1) {
-			console.log('É us guri bah tche!')
+			console.log('funcionou!')
 			instrucaoSql = `update vezesOuvida set vezesOuvida = 
 			vezesOuvida +1 where fkMusica="${value_musica}" and fkUsuario="${vt_fkUsuario}"`;
 
@@ -74,7 +75,28 @@ router.post('/mostrarMusicasOuvidasTotal/:vt_fkUsuario', function (req, res, nex
 /* Mostra quais músicas o usuário mais ouviu */
 router.post('/mostrarMusicasMaisOuvidas/:vt_fkUsuario', function (req, res, next) {
 	var vt_fkUsuario = req.params.vt_fkUsuario;
-	console.log('mais ouvidas funcionou');
+	console.log('Músicas mais ouvidas funcionou');
+
+	let instrucaoSql = `select vezesOuvida, titulo from vezesOuvida join musica on 
+	fkMusica = idMusica where fkUsuario = '${vt_fkUsuario}' order by vezesOuvida desc`;
+	console.log(instrucaoSql);
+
+	sequelize.query(instrucaoSql, {
+			type: sequelize.QueryTypes.SELECT
+		})
+		.then(resultado => {
+			res.json(resultado);
+		}).catch(erro => {
+			console.error(erro);
+			res.status(500).send(erro.message);
+		});
+
+});
+
+/* Mostra qual artista o usuário mais ouviu */
+router.post('/mostrarArtistaMaisOuvido/:vt_fkUsuario', function (req, res, next) {
+	var vt_fkUsuario = req.params.vt_fkUsuario;
+	console.log('Artistas mais ouvidos funcionou');
 
 	let instrucaoSql = `select vezesOuvida, titulo from vezesOuvida join musica on 
 	fkMusica = idMusica where fkUsuario = '${vt_fkUsuario}' order by vezesOuvida desc`;
