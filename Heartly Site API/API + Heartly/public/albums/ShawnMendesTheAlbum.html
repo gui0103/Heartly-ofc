@@ -122,6 +122,24 @@
             }
         });
 
+        fetch(`/musica/mostrarArtistaMaisOuvido/${value_musica}/${vt_fkUsuario}`, {
+            method: "POST"
+        }).then(resposta => {
+
+            if (resposta.ok) {
+
+                console.log('Artista mais ouvido aumentou!');
+
+            } else {
+
+                console.log('Erro em aumentar artista mais ouvido!');
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                });
+            }
+        });
+
         return false;
     }
 </script>

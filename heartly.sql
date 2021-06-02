@@ -45,6 +45,9 @@ select vezesOuvida, titulo from vezesOuvida join musica on
     
 select login from usuario;
 
+select artista from vezesOuvida join musica on 
+	fkMusica = idMusica where fkUsuario = 1 order by vezesOuvida desc;
+
 insert into musica (titulo, vezesOuvidaGeral, artista)
 values ('CASTLE ON THE HILL',  0, 'Ed Sheeran'), ('DIVE',  0, 'Ed Sheeran'), ('GALWAY GIRL',  0, 'Ed Sheeran'), ('NANCY MULLIGAN',  0, 'Ed Sheeran'),
  ('NEW MAN',  0, 'Ed Sheeran'), ('PERFECT',  0, 'Ed Sheeran'), ('SHAPE OF YOU',  0, 'Ed Sheeran'), ('SUPERMARKET FLOWERS',  0, 'Ed Sheeran'),

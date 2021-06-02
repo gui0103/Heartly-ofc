@@ -61,15 +61,15 @@
         <div class="box_content_total">
             <div class="box_position">
                 <span>Você ouviu um total de:</span> <br><br>
-                <h1 id="total_ouvidas"> </h1> <br><br>
+                <h1 id="total_ouvidas"></h1> <br><br>
                 <span>músicas no Heartly</span>
             </div>
         </div>
         <div class="box_content_artist">
             <div class="box_position">
                 <span>Artista mais ouvido por você:</span>
-                <h1> Shawn Mendes </h1>
-                <img src="https://i.redd.it/59q019z1u1v51.jpg">
+                <h1 id="artistaOuvido">Nenhum</h1>
+                <img id="FotoArtista">
             </div>
         </div>
     </div>
@@ -169,6 +169,39 @@
                         barra1.style.width = `${result_1}%`;
                         barra2.style.width = `${result_2}%`;
                         barra3.style.width = `${result_3}%`;
+
+                    })
+                    console.log('funcionou');
+
+                } else {
+
+                    console.log('Erro!');
+
+                    resposta.text().then(texto => {
+                        console.error(texto);
+                    });
+                }
+            });
+
+            /* Mostra qual artista o usuário mais ouvido */
+            fetch(`/musica/mostrarArtistaMaisOuvido/${vt_fkUsuario}`, {
+                method: "POST"
+            }).then(resposta => {
+
+                if (resposta.ok) {
+                    resposta.json().then(json => {
+                        console.log(json[0].soma);
+
+                        for (let index = 0; index < 1; index++) {
+
+                            var artistaNome = json[index].artista;
+
+                            document.getElementById(`artistaOuvido`).innerHTML =
+                                `${artistaNome}`;
+                            document.getElementById(`FotoArtista`).src =
+                                `../imgs/${artistaNome}.jpg`;
+                        }
+
 
                     })
                     console.log('funcionou');
