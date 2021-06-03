@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../telas/playlist.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="icon" href="../imgs/Logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Fugaz+One&display=swap" rel="stylesheet">
+    <title>Playlist</title>
+</head>
+
+<body>
+    <!-- Header -->
+    <div class="header">
+        <div class="caixa">
+            <a href="../index.html"><img class="logo" src="../imgs/logo_music.png"
+                    alt="Logo da heartly na cor rosa claro"></a>
+            <a href="../telas/top_albuns.html"><img class="logo_albuns" src="../imgs/albuns.png"></a>
+            <nav>
+                <b>
+                    <ul>
+                        <a href="../index.html">
+                            <li>HOME</li>
+                        </a>
+                        <a href="../telas/emalta.html">
+                            <li>EM ALTA</li>
+                        </a>
+                        <a href="../telas/cadastro.html">
+                            <li>CADASTRO</li>
+                        </a>
+                        <a href="../telas/perfil_Logado.html">
+                            <li>MEU PERFIL</li>
+                        </a>
+                    </ul>
+                </b>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Content -->
+    <div class="title">
+        <b>MONTE SUA PLAYLIST</b>
+    </div>
+    <div class="box_pai">
+
+        <!-- Songs -->
+        <div class="box_divisoria1">
+            <div class="box_fileira">
+            <div class="box_titulo">
+                       afasfsafaf
+            </div>
+        </div>
+    </div>
+
+        <!-- Songs -->
+        <div class="box_divisoria2">
+    <div class="box_fileira">
+        <div class="box_song">
+            <b class="box_song_text">CASTLE ON THE HILL <br> - ED SHEERAN -</b> <br> <br>
+            <audio id="1" onplay="play_song(this.id, 1)"
+                src="../msc/Ed Sheeran - Castle On The Hill(MP3_160K).mp3" controls loop> </audio>    
+        </div>
+        <div class="box_song2">
+            <b class="box_song_text">DIVE <br> - ED SHEERAN -</b> <br> <br>
+            <audio id="2" onplay="play_song(this.id, 2)" src="../msc/Ed Sheeran - Dive(MP3_160K).mp3"
+                controls loop>
+            </audio>
+        </div>
+    </div>
+        <div class="box_fileira">
+        <div class="box_song">
+            <b class="box_song_text">GALWAY GIRL <br> - ED SHEERAN -</b> <br> <br>
+            <audio id="3" onplay="play_song(this.id, 3)"
+                src="../msc/Ed Sheeran - Galway Girl (MP3_160K).mp3" controls loop> </audio>
+        </div>
+        <div class="box_song2">
+            <b class="box_song_text">NANCY MULLIGAN <br> - ED SHEERAN -</b> <br> <br>
+            <audio id="4" onplay="play_song(this.id, 4)"
+                src="../msc/Ed Sheeran - Nancy Mulligan (MP3_160K).mp3" controls loop> </audio>
+        </div>
+    </div>
+
+    <div class="box_fileira">
+        <div class="box_song">
+            <b class="box_song_text">NEW MAN <br> - ED SHEERAN -</b> <br> <br>
+            <audio id="5" onplay="play_song(this.id, 5)" src="../msc/Ed Sheeran - New Man (MP3_160K).mp3" controls loop>
+            </audio>
+        </div>
+        <div class="box_song2">
+            <b class="box_song_text">PERFECT <br> - ED SHEERAN -</b> <br> <br>
+            <audio id="6" onplay="play_song(this.id, 6)" src="../msc/Ed Sheeran - Perfect (MP3_160K).mp3" controls loop>
+            </audio>
+        </div>
+    </div>
+        <div class="box_fileira">
+        <div class="box_song">
+            <b class="box_song_text">SHAPE OF YOU <br> - ED SHEERAN -</b> <br> <br>
+            <audio id="7" onplay="play_song(this.id, 7)" src="../msc/Ed Sheeran - Shape of You (MP3_160K).mp3" controls
+                loop> </audio>
+        </div>
+        <div class="box_song2">
+            <b class="box_song_text">SUPERMARKET FLOWERS <br> - ED SHEERAN -</b> <br> <br>
+            <audio id="8" onplay="play_song(this.id, 8)" src="../msc/Ed Sheeran - Supermarket Flowers (MP3_160K).mp3"
+                controls loop> </audio>
+        </div>
+    </div>
+</div>
+</div>
+
+</body>
+
+</html>
+
+<script>
+    var vt_fkUsuario = sessionStorage.getItem('idUsuario_usuario_meuapp');
+
+    function play_song(audio_clicado, value_musica) {
+        console.log(value_musica);
+        for (var pausar = 1; pausar <= 8; pausar++) {
+            document.getElementById(`${audio_clicado}`).volume = 0.15;
+            document.getElementById(`${audio_clicado}`).play();
+            if (pausar != audio_clicado) {
+                document.getElementById(`${pausar}`).pause();
+                document.getElementById(`${pausar}`).load();
+            }
+        }
+        console.log(value_musica)
+        fetch(`/musica/aumentarVezesOuvidaGeral/${value_musica}/${vt_fkUsuario}`, {
+            method: "POST"
+        }).then(resposta => {
+
+            if (resposta.ok) {
+
+                console.log('Vezes ouvida aumentou!');
+
+            } else {
+
+                console.log('Erro em aumentar vezes ouvida!');
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                });
+            }
+        });
+
+        fetch(`/musica/mostrarArtistaMaisOuvido/${value_musica}/${vt_fkUsuario}`, {
+            method: "POST"
+        }).then(resposta => {
+
+            if (resposta.ok) {
+
+                console.log('Artista mais ouvido aumentou!');
+
+            } else {
+
+                console.log('Erro em aumentar artista mais ouvido!');
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                });
+            }
+        });
+
+        return false;
+    }
+</script>

@@ -1,0 +1,151 @@
+body {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background-color: #fffff0;
+    background-image: url('https://images5.alphacoders.com/912/912044.jpg');
+    background-repeat: repeat-y;
+}
+
+/* Header */
+.header {
+    background-color: #000000;
+    width: 100%;
+    height: 120px;
+    position: fixed;
+    z-index: 2;
+}
+
+.caixa {
+    max-width: 80%;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    height: 80px;
+}
+
+.logo_songs {
+    padding-top: 18px;
+    height: 70px;
+}
+
+.header nav {
+    float: right;
+}
+
+ul {
+    list-style: none;
+}
+
+ul li:hover {
+    color: #e0b0ff;
+}
+
+ul li {
+    font-family: PT Sans, sans-serif, Impact;
+    color: #fffff0;
+    display: inline;
+    margin-left: 22px;
+    font-size: larger;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* Songs */
+.title {
+    padding-top: 170px;
+    padding-bottom: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #e0b0ff;
+    font-family: PT Sans, sans-serif, Impact;
+    font-size: 55px;
+}
+
+.logo_albuns {
+    padding-top: 18px;
+    height: 70px;
+    padding-left: 200px;
+}
+
+.box_pai {
+    z-index: 1;
+}
+
+.box_fileira {
+    padding-bottom: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.box_song {
+    height: 60px;
+    width: 300px;
+    text-align: center;
+    float: left;
+    margin-right: 50px;
+}
+
+.box_song2 {
+    height: 60px;
+    width: 300px;
+    text-align: center;
+    float: right;
+    margin-left: 50px;
+}
+
+.box_song_text {
+    color: #e0b0ff;
+    font-family: PT Sans, sans-serif, Impact;
+    font-size: 18px;
+}
+
+.box_divisoria1 {
+    float: left;
+    margin-left: 10%;
+}
+
+.box_divisoria2 {
+    float: right;
+    margin-right: 10%;
+}
+
+.box_titulo1 {
+    height: 30px;
+    width: 300px;
+    text-align: center;
+    float: left;
+    margin-right: 50px;
+    margin-bottom: 30px;
+    background-color: #e0b0ff;
+}
+
+.box_titulo2 {
+    height: 30px;
+    width: 300px;
+    text-align: center;
+    float: right;
+    margin-left: 50px;
+    margin-bottom: 30px;
+    background-color: #e0b0ff;
+}
+
+/* Configurações da tag "audio" */
+audio::-webkit-media-controls-panel {
+    background-color: #e0b0ff;
+}
+
+audio::-webkit-media-controls-panel:hover {
+    background-color: #DD95E8;
+}
