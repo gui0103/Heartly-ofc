@@ -89,6 +89,13 @@ a {
     justify-content: center;
 }
 
+.box_fileira2 {
+    padding-bottom: 1.5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .box_song {
     height: 60px;
     width: 300px;
@@ -114,6 +121,13 @@ a {
 .box_divisoria1 {
     float: left;
     margin-left: 10%;
+    padding-right: 60px;
+    border-color: #e0b0ff;
+    border-style: solid;
+    border-right-width: 2px;
+    border-left-width: 0px;
+    border-top-width: 0px;
+    border-bottom-width: 0px;
 }
 
 .box_divisoria2 {
@@ -122,23 +136,103 @@ a {
 }
 
 .box_titulo1 {
-    height: 30px;
-    width: 300px;
-    text-align: center;
+    height: 45px;
+    width: 250px;
+    padding-right: 25px;
+    padding-left: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: left;
     float: left;
     margin-right: 50px;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
     background-color: #e0b0ff;
+    border-radius: 5px;
+    border-color: #e0b0ff;
+    border-width: 1px;
+    border-style: solid;
 }
 
 .box_titulo2 {
-    height: 30px;
-    width: 300px;
-    text-align: center;
+    height: 45px;
+    width: 250px;
+    padding-right: 25px;
+    padding-left: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: left;
     float: right;
     margin-left: 50px;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
     background-color: #e0b0ff;
+    border-radius: 5px;
+    border-color: #e0b0ff;
+    border-width: 1px;
+    border-style: solid;
+}
+
+.box_titulo1 b {
+    color: #000000;
+}
+
+.box_titulo2 b {
+    color: #000000;
+}
+
+.box_titulo1 img {
+    height: 42px;
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+.box_titulo2 img {
+    height: 42px;
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+.box_titulo1 img:hover {
+    height: 42px;
+    cursor: pointer;
+    margin-right: 20px;
+    opacity: 0.7;
+}
+
+.box_titulo2 img:hover {
+    height: 42px;
+    cursor: pointer;
+    margin-right: 20px;
+    opacity: 0.7;
+}
+
+.box_centralizadora {
+    text-align: center;
+}
+
+.box_centralizadora button {
+    margin-top: 10px;
+    font-family: PT Sans, sans-serif, Impact;
+    font-size: 20px;
+    background-color: #e0b0ff;
+    color: #ffffff;
+    width: 250px;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    margin-left: 70px;
+}
+
+.box_centralizadora button:hover{
+    margin-top: 10px;
+    font-family: PT Sans, sans-serif, Impact;
+    font-size: 20px;
+    background-color: #e0b0ff;
+    color: #ffffff;
+    width: 270px;
+    height: 50px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
 }
 
 /* Configurações da tag "audio" */
