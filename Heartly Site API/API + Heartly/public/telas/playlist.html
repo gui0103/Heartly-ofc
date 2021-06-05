@@ -175,12 +175,12 @@
         <div class="box_divisoria2">
             <div class="box_fileira">
                 <div class="box_song">
-                    <b class="box_song_text">CASTLE ON THE HILL <br> - ED SHEERAN -</b> <br> <br>
+                    <b class="box_song_text" id="titulo1">CASTLE ON THE HILL <br> - ED SHEERAN -</b> <br> <br>
                     <audio id="1" onplay="play_song(this.id)" src="../msc/Ed Sheeran - Castle On The Hill(MP3_160K).mp3"
                         controls loop> </audio>
                 </div>
                 <div class="box_song2">
-                    <b class="box_song_text">DIVE <br> - ED SHEERAN -</b> <br> <br>
+                    <b class="box_song_text" id="titulo2">DIVE <br> - ED SHEERAN -</b> <br> <br>
                     <audio id="2" onplay="play_song(this.id)" src="../msc/Ed Sheeran - Dive(MP3_160K).mp3" controls
                         loop>
                     </audio>
@@ -188,12 +188,12 @@
             </div>
             <div class="box_fileira">
                 <div class="box_song">
-                    <b class="box_song_text">GALWAY GIRL <br> - ED SHEERAN -</b> <br> <br>
+                    <b class="box_song_text" id="titulo3">GALWAY GIRL <br> - ED SHEERAN -</b> <br> <br>
                     <audio id="3" onplay="play_song(this.id)" src="../msc/Ed Sheeran - Galway Girl (MP3_160K).mp3"
                         controls loop> </audio>
                 </div>
                 <div class="box_song2">
-                    <b class="box_song_text">NANCY MULLIGAN <br> - ED SHEERAN -</b> <br> <br>
+                    <b class="box_song_text" id="titulo4">NANCY MULLIGAN <br> - ED SHEERAN -</b> <br> <br>
                     <audio id="4" onplay="play_song(this.id)" src="../msc/Ed Sheeran - Nancy Mulligan (MP3_160K).mp3"
                         controls loop> </audio>
                 </div>
@@ -201,13 +201,13 @@
 
             <div class="box_fileira">
                 <div class="box_song">
-                    <b class="box_song_text">NEW MAN <br> - ED SHEERAN -</b> <br> <br>
+                    <b class="box_song_text" id="titulo5">NEW MAN <br> - ED SHEERAN -</b> <br> <br>
                     <audio id="5" onplay="play_song(this.id)" src="../msc/Ed Sheeran - New Man (MP3_160K).mp3" controls
                         loop>
                     </audio>
                 </div>
                 <div class="box_song2">
-                    <b class="box_song_text">PERFECT <br> - ED SHEERAN -</b> <br> <br>
+                    <b class="box_song_text" id="titulo6">PERFECT <br> - ED SHEERAN -</b> <br> <br>
                     <audio id="6" onplay="play_song(this.id)" src="../msc/Ed Sheeran - Perfect (MP3_160K).mp3" controls
                         loop>
                     </audio>
@@ -215,12 +215,12 @@
             </div>
             <div class="box_fileira">
                 <div class="box_song">
-                    <b class="box_song_text">SHAPE OF YOU <br> - ED SHEERAN -</b> <br> <br>
+                    <b class="box_song_text" id="titulo7">SHAPE OF YOU <br> - ED SHEERAN -</b> <br> <br>
                     <audio id="7" onplay="play_song(this.id)" src="../msc/Ed Sheeran - Shape of You (MP3_160K).mp3"
                         controls loop> </audio>
                 </div>
                 <div class="box_song2">
-                    <b class="box_song_text">SUPERMARKET FLOWERS <br> - ED SHEERAN -</b> <br> <br>
+                    <b class="box_song_text" id="titulo8">SUPERMARKET FLOWERS <br> - ED SHEERAN -</b> <br> <br>
                     <audio id="8" onplay="play_song(this.id)"
                         src="../msc/Ed Sheeran - Supermarket Flowers (MP3_160K).mp3" controls loop> </audio>
                 </div>
@@ -239,34 +239,169 @@
 <script>
     vt_musicas_escolhidas = [];
 
-    vt_musicas_ids = ["posicao 0", "posicao 1", "posicao", "posicao ", "posicao ", "posicao ", 
-    "posicao 0", "posicao ", "posicao ", "posicao ", "posicao ", "posicao ",
-    "posicao 0", "posicao ", "posicao ", "posicao ", "posicao ", "posicao ",
-    "posicao 0", "posicao ", "posicao ", "posicao ", "posicao ", "posicao ",
-    "posicao 0", "posicao ", "posicao ", "posicao ", "posicao ", "posicao ",
-    "posicao 0", "posicao ", "posicao ", "posicao ", "posicao ", "posicao ",
-    "posicao 0", "posicao ", "posicao ", "posicao ", "posicao ", "posicao ",
-    "posicao 0", "posicao ", "posicao ", "posicao ", "posicao ", "posicao ",
-    "posicao 0", "posicao ", "posicao ", "posicao ", "posicao ", "posicao ",
-    "posicao 0", "posicao ", "posicao ", "posicao ", "posicao ", "posicao ",]
+    vt_musicas_srcs = ["posicao0", "../msc/Ed Sheeran - Castle On The Hill(MP3_160K).mp3", "posicao2",
+        "../msc/Ed Sheeran - Galway Girl (MP3_160K).mp3",
+        "posicao4", "../msc/Ed Sheeran - New Man (MP3_160K).mp3",
+        "posicao6", "../msc/Ed Sheeran - Shape of You (MP3_160K).mp3", "posicao8",
+        "../msc/Harry Styles - Fine Line (Official Audio)(MP3_160K).mp3",
+        "../msc/Harry Styles - Golden (Official Audio)(MP3_160K).mp3",
+        "../msc/Harry Styles - Lights Up (Official Video)(MP3_160K).mp3",
+        "posicao12", "posicao13", "posicao14", "../msc/Harry Styles - Watermelon Sugar(MP3_160K).mp3", "posicao16",
+        "../msc/Painkiller(MP3_160K).mp3",
+        "../msc/Ruel - courage (official audio)(MP3_160K).mp3", "posicao19",
+        "../msc/Ruel - distance (official audio)(MP3_160K).mp3", "posicao21",
+        "../msc/Ruel - Real Thing (Audio)(MP3_160K).mp3", "posicao23",
+        "posicao24", "../msc/Why.mp3", "posicao26", "../msc/Mutual.mp3", "posicao28", "posicao29",
+        "../msc/When You're Ready.mp3", "../msc/Fallin' All In You.mp3", "../msc/Perfectly Wrong.mp3", "posicao33",
+        "../msc/Dream(MP3_160K).mp3", "posicao35",
+        "../msc/Song For No One(MP3_160K).mp3", "../msc/Wonder(MP3_160K).mp3", "posicao38", "posicao39",
+        "posicao40", "posicao41", "../msc/Taylor Swift - Lover Remix Feat. Shawn Mendes(MP3_160K).mp3",
+        "../msc/Taylor Swift - Wildest Dreams(MP3_160K).mp3", "posicao44", "posicao45", "posicao46", "posicao47",
+        "posicao48",
+        "posicao49", "posicao50", "../msc/I Did Something Bad(MP3_160K).mp3", "posicao52", "posicao53", "posicao54",
+        "posicao55", "posicao56", "posicao57", "posicao58",
+        "../msc/Travis Scott - HIGHEST IN THE ROOM(MP3_160K).mp3"
+    ];
+
+    vt_musicas_titulos = ["posicao0", "Castle On The Hill <br> - Ed Sheeran -", "posicao2",
+        "Galway Girl <br> - Ed Sheeran -",
+        "posicao4", "New Man <br> - Ed Sheeran -",
+        "posicao6", "Shape of You <br> - Ed Sheeran -", "posicao8",
+        "Fine Line <br> - Harry Styles -",
+        "Golden <br> - Harry Styles -",
+        "Lights Up <br> - Harry Styles -",
+        "posicao12", "posicao13", "posicao14", "Watermelon Sugar <br> - Harry Styles -", "posicao16",
+        "Painkiller <br> - Ruel -",
+        "Courage <br> - Ruel -", "posicao19",
+        "Distance <br> - Ruel -", "posicao21",
+        "Real Thing <br> - Ruel -", "posicao23",
+        "posicao24", "Why <br> - Shawn Mendes -", "posicao26", "Mutual <br> - Shawn Mendes -", "posicao28",
+        "posicao29",
+        "When You're Ready <br> - Shawn Mendes -", "Fallin' All In You <br> - Shawn Mendes -",
+        "Perfectly Wrong <br> - Shawn Mendes -", "posicao33",
+        "Dream <br> - Shawn Mendes -", "posicao35",
+        "Song For No One <br> - Shawn Mendes -", "Wonder <br> - Shawn Mendes -", "posicao38", "posicao39",
+        "posicao40", "posicao41", "Lover Remix <br> - Taylor Swift -",
+        "Wildest Dreams <br> - Taylor Swift -", "posicao44", "posicao45", "posicao46", "posicao47", "posicao48",
+        "posicao49", "posicao50", "I Did Something Bad <br> - Taylor Swift -", "posicao52", "posicao53",
+        "posicao54",
+        "posicao55", "posicao56", "posicao57", "posicao58", "HIGHEST IN THE ROOM <br> - Travis Scott -"
+    ];
 
     tamanho_cont = 0;
+
+    // Conexão com o Banco de Dados
+    var vt_fkUsuario = sessionStorage.getItem('idUsuario_usuario_meuapp');
+    var vt_nomeUsuario = sessionStorage.getItem('nomeUsuario_usuario_meuapp');
+
+    verificar_login()
+
+    function verificar_session() {
+
+        fetch(`/usuarios/sessao/${vt_nomeUsuario}`, {
+                cache: 'no-store'
+            })
+            .then(resposta => {
+                if (resposta.ok) {
+                    resposta.text().then(texto => {
+                        console.log('Session :slight_smile: ', texto);
+                    });
+                } else {
+                    console.error('Session :.( ');
+                    sair();
+                }
+            });
+
+    }
+
+    function verificar_login() {
+
+        if (vt_fkUsuario == null) {
+            window.location.href = 'login.html';
+        } else {
+            verificar_session();
+
+            /* Soma quantas músicas o usuário ouviu */
+            fetch(`/musica/mostrarMusicasOuvidasTotal/${vt_fkUsuario}`, {
+                method: "POST"
+            }).then(resposta => {
+
+                if (resposta.ok) {
+                    resposta.json().then(json => {
+                        console.log(json[0].soma);
+                        total_ouvidas.innerHTML = json[0].soma;
+
+                    })
+                    console.log('funcionou');
+
+                } else {
+
+                    console.log('Erro!');
+
+                    resposta.text().then(texto => {
+                        console.error(texto);
+                    });
+                }
+            });
+
+        }
+    }
 
     // Adiciona a música na playlist
     function adicionar(musica_selecionada) {
 
-        if ( tamanho_cont < 8) {
+        if (tamanho_cont < 8) {
             tamanho_cont++;
-            vt_musicas_escolhidas.push(musica_selecionada);  
+            vt_musicas_escolhidas.push(musica_selecionada);
         } else {
-            alert('Você não pode adicionar mais de 8 músicas na playlist!')
+            alert('Você não pode adicionar mais de 8 músicas na playlist!');
         }
+
     }
 
     // Salva a playlist
     function salvar() {
-        
+        if (tamanho_cont < 8) {
+            alert(`Você adicionou ${tamanho_cont} músicas, por favor adicione mais ${8 - tamanho_cont} músicas!`);
+        }
+
+        for (let index = 0; index < 8; index++) {
+        document.getElementById(`${index + 1}`).src = `${vt_musicas_srcs[vt_musicas_escolhidas[index]]}`;
+
+        document.getElementById(`titulo${index + 1}`).innerHTML = `${vt_musicas_titulos[vt_musicas_escolhidas[index]].toUpperCase()}`;
+ 
+        }
+
+        var musica_escolhida_0 = vt_musicas_escolhidas[0];
+        var musica_escolhida_1 = vt_musicas_escolhidas[1];
+        var musica_escolhida_2 = vt_musicas_escolhidas[2];
+        var musica_escolhida_3 = vt_musicas_escolhidas[3];
+        var musica_escolhida_4 = vt_musicas_escolhidas[4];
+        var musica_escolhida_5 = vt_musicas_escolhidas[5];
+        var musica_escolhida_6 = vt_musicas_escolhidas[6];
+        var musica_escolhida_7 = vt_musicas_escolhidas[7];
+
+        fetch(`/musica/mudarPlaylist/${musica_escolhida_0}/${musica_escolhida_1}/${musica_escolhida_2}/${musica_escolhida_3}/${musica_escolhida_4}/${musica_escolhida_5}/${musica_escolhida_6}/${musica_escolhida_7}/${vt_fkUsuario}`, {
+            method: "POST"
+        }).then(resposta => {
+
+            if (resposta.ok) {
+
+                console.log('Mudar Playlist ok!');
+
+            } else {
+
+                console.log('Erro em Mudar Playlist!');
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                });
+            }
+        });
+
+        return false;
     }
+
 
     // Faz a música selecionada tocar e as outras pararem de tocar
     function play_song(audio_clicado) {
@@ -279,4 +414,38 @@
             }
         }
     }
+
+    fetch(`/musica/mudarNomesPlaylist/${vt_fkUsuario}`, {
+        method: "GET"
+    }).then(resposta => {
+
+        if (resposta.ok) {
+
+            resposta.json().then(json => {
+
+                for (let index = 0; index < 8; index++) {
+
+                    var musicaNome = vt_musicas_titulos[json[index].fkMusica];
+                    var musicaSrc = vt_musicas_srcs[json[index].fkMusica];
+
+                    document.getElementById(`titulo${index + 1}`).innerHTML =
+                        `${musicaNome.toUpperCase()}`;
+
+                    document.getElementById(`${index + 1}`).src =
+                        `${musicaSrc}`;
+                }
+
+
+            })
+
+        } else {
+
+            console.log('Erro em Mudar nomes das músicas Playlist!');
+
+            resposta.text().then(texto => {
+                console.error(texto);
+            });
+        }
+    });
+
 </script>

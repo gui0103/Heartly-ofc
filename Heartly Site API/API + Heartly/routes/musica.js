@@ -114,4 +114,62 @@ router.post('/mostrarArtistaMaisOuvido/:vt_fkUsuario', function (req, res, next)
 
 });
 
+/* Muda a Playlist */
+router.post('/mudarPlaylist/:musica_escolhida_0/:musica_escolhida_1/:musica_escolhida_2/:musica_escolhida_3/:musica_escolhida_4/:musica_escolhida_5/:musica_escolhida_6/:musica_escolhida_7/:vt_fkUsuario', function (req, res, next) {
+	var vt_fkUsuario = req.params.vt_fkUsuario;
+	var musica_escolhida_0 = req.params.musica_escolhida_0;
+	var musica_escolhida_1 = req.params.musica_escolhida_1;
+	var musica_escolhida_2 = req.params.musica_escolhida_2;
+	var musica_escolhida_3 = req.params.musica_escolhida_3;
+	var musica_escolhida_4 = req.params.musica_escolhida_4;
+	var musica_escolhida_5 = req.params.musica_escolhida_5;
+	var musica_escolhida_6 = req.params.musica_escolhida_6;
+	var musica_escolhida_7 = req.params.musica_escolhida_7;
+
+	let instrucaoSql = `delete from playlist where fkUsuario='${vt_fkUsuario}'`;
+	console.log(instrucaoSql);
+
+	sequelize.query(instrucaoSql, {
+		model: playlist
+	})
+
+	vt_musicas_enviadas = [`insert into playlist values ('Minha Playlist', ${musica_escolhida_0}, ${vt_fkUsuario})`,
+		`insert into playlist values ('Minha Playlist', ${musica_escolhida_1}, ${vt_fkUsuario})`,
+		`insert into playlist values ('Minha Playlist', ${musica_escolhida_2}, ${vt_fkUsuario})`,
+		`insert into playlist values ('Minha Playlist', ${musica_escolhida_3}, ${vt_fkUsuario})`,
+		`insert into playlist values ('Minha Playlist', ${musica_escolhida_4}, ${vt_fkUsuario})`,
+		`insert into playlist values ('Minha Playlist', ${musica_escolhida_5}, ${vt_fkUsuario})`,
+		`insert into playlist values ('Minha Playlist', ${musica_escolhida_6}, ${vt_fkUsuario})`,
+		`insert into playlist values ('Minha Playlist', ${musica_escolhida_7}, ${vt_fkUsuario})`
+	]
+
+	for (let index = 0; index < 8; index++) {
+
+		sequelize.query(vt_musicas_enviadas[index], {
+			type: sequelize.QueryTypes.INSERT
+		});
+
+	}
+
+});
+
+/* Muda os nomes das músicas na Playlist */
+router.get('/mudarNomesPlaylist/:vt_fkUsuario', function (req, res, next) {
+	var vt_fkUsuario = req.params.vt_fkUsuario;
+
+	let instrucaoSql = `select fkMusica from playlist where fkUsuario = '${vt_fkUsuario}'`;
+	console.log(instrucaoSql);
+
+	sequelize.query(instrucaoSql, {
+			type: sequelize.QueryTypes.SELECT
+		})
+		.then(resultado => {
+			res.json(resultado);
+		}).catch(erro => {
+			console.error(erro);
+			res.status(500).send(erro.message);
+		});
+
+});
+
 module.exports = router;
