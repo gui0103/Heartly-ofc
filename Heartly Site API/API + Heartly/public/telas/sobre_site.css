@@ -61,74 +61,48 @@ a {
 
 .box_fileira {
     height: 390px;
-    width: 85%;
+    width: 90%;
     margin: auto;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 150px;
+    margin-bottom: 110px;
 }
 
 .box_fileira2 {
     height: 390px;
-    width: 85%;
+    width: 95%;
     margin: auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 200px;
+    margin-bottom: 100px;
+    margin-left: 2.5%;
+}
+
+.box_fileira3 {
+    height: 390px;
+    width: 95%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 100px;
+    margin-left: 2.5%;
 }
 
 .box_fileira img {
-    height: 528px;
+    height: 490px;
 }
 
 .box_fileira2 img {
-    height: 528px;
+    height: 490px;
+    
 }
 
-.box_rosa img {
-    margin-right: 20px;
-    height: 350px;
-    width: 350px;
-    background-color: #8dbcd0;
-    border-style: solid;
-    border-color: #ebede4;
-    border-radius: 10px;
-    cursor: pointer;
-}
-
-.box_rosa2 img {
-    margin-left: 20px;
-    height: 350px;
-    width: 350px;
-    background-color: #8dbcd0;
-    border-style: solid;
-    border-color: #ebede4;
-    border-radius: 10px;
-    cursor: pointer;
-}
-
-.box_rosa img:hover {
-    margin-right: 20px;
-    height: 350px;
-    width: 350px;
-    background-color: #8dbcd0;
-    border-style: solid;
-    border-color: #e0b0ff;
-    border-radius: 10px;
-    cursor: pointer;
-}
-
-.box_rosa2 img:hover {
-    margin-left: 20px;
-    height: 350px;
-    width: 350px;
-    background-color: #8dbcd0;
-    border-style: solid;
-    border-color: #e0b0ff;
-    border-radius: 10px;
-    cursor: pointer;
+.box_fileira3 img {
+    height: 600px;
+    
 }
 
 .div_title {
@@ -144,13 +118,36 @@ a {
     cursor: default;
 }
 
+.box_fileira3 button {
+    font-family: PT Sans, sans-serif, Impact;
+    font-size: 20px;
+    background-color: #30136B;
+    color: #ffffff;
+    width: 250px;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+}
+
+.box_fileira3 button:hover{
+    font-family: PT Sans, sans-serif, Impact;
+    font-size: 22px;
+    background-color: #30136B;
+    color: #ffffff;
+    width: 270px;
+    height: 50px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
 /* Configurações da barra de rolagem */
 ::-webkit-scrollbar {
     height: 20px;
     background-color: #000000;
-    width: 0px;
+    width: 10px;
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: #161415;
+    background-color: #30136B;
 }
