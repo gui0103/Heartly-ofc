@@ -91,18 +91,31 @@ a {
     margin-left: 2.5%;
 }
 
+.box_fileira4 {
+    height: 390px;
+    width: 95%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 250px;
+    margin-left: 2.5%;
+}
+
 .box_fileira img {
     height: 490px;
 }
 
 .box_fileira2 img {
     height: 490px;
-    
 }
 
 .box_fileira3 img {
-    height: 600px;
-    
+    height: 600px;  
+}
+
+.box_fileira4 img {
+    height: 900px;  
 }
 
 .div_title {
@@ -111,7 +124,20 @@ a {
     padding-bottom: 80px;
 }
 
+.div_title2 {
+    padding-top: 120px;
+    text-align: center;
+    padding-bottom: 280px;
+}
+
 .div_title h3 {
+    color: #fffff0;
+    font-family: PT Sans, sans-serif, Impact;
+    font-size: 50px;
+    cursor: default;
+}
+
+.div_title2 h3 {
     color: #fffff0;
     font-family: PT Sans, sans-serif, Impact;
     font-size: 50px;
