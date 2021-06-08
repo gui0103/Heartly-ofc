@@ -102,6 +102,18 @@ a {
     margin-left: 2.5%;
 }
 
+.box_fileira5 {
+    height: 390px;
+    width: 42%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 50px;
+    padding-top: 200px;
+    margin-left: 29%;
+}
+
 .box_fileira img {
     height: 490px;
 }
@@ -118,6 +130,9 @@ a {
     height: 900px;  
 }
 
+.box_fileira5 img {
+    height: 600px;  
+}
 .div_title {
     padding-top: 120px;
     text-align: center;
